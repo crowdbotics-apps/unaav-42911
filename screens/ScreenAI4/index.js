@@ -1,3 +1,4 @@
+import { Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { SafeAreaView, StyleSheet, View, Image, TextInput, TouchableOpacity, Text } from "react-native";
@@ -18,7 +19,9 @@ const ScreenComponent = () => {
     }}>
         <Text style={styles.buttonText}>Forgot password?</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("ScreenAI20");
+    }}>
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
       <Text style={styles.orText}>OR</Text>
@@ -36,7 +39,9 @@ const ScreenComponent = () => {
     }}>
         <Text style={styles.linkText}>Don't have an account? Sign up</Text>
       </TouchableOpacity>
-    </SafeAreaView>;
+    <Pressable onPress={() => {
+      navigation.navigate("ScreenAI21");
+    }}><Text style={styles.QsLiiyxs}>{"Driver Sign in"}</Text></Pressable></SafeAreaView>;
 };
 
 const styles = StyleSheet.create({
@@ -83,6 +88,17 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "black"
+  },
+  QsLiiyxs: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0,
+    position: "absolute",
+    left: 65,
+    top: -251,
+    textAlign: "center"
   }
 });
 export default ScreenComponent;
