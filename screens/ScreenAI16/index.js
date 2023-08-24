@@ -1,3 +1,4 @@
+import { Pressable } from "react-native";
 import React, { useState } from 'react';
 import { SafeAreaView, View, Text, TextInput, Button, Image, StyleSheet, Picker } from 'react-native';
 
@@ -34,7 +35,9 @@ const PaymentScreen = ({
         <Button title="Pay" onPress={() => {}} />
         <Button title="Cancel" color="red" onPress={() => navigation.goBack()} />
       </View>
-    </SafeAreaView>;
+    <Pressable onPress={() => {
+      navigation.navigate("ScreenAI17");
+    }}><Text style={styles.QavFthjC}></Text></Pressable></SafeAreaView>;
 };
 
 const styles = StyleSheet.create({
@@ -78,6 +81,16 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  QavFthjC: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0,
+    position: "absolute",
+    left: -17,
+    top: -42
   }
 });
 export default PaymentScreen;
