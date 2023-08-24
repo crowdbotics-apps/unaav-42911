@@ -27,9 +27,11 @@ const Screen = () => {
         <Image source={{
         uri: 'https://tinyurl.com/42evm3m3'
       }} style={_styles.MIeSLjDh} />
-        <Image source={{
-        uri: 'https://tinyurl.com/42evm3m3'
-      }} style={_styles.pZwwVMrh} />
+        <Pressable onPress={() => {
+        navigation.navigate("ScreenAI31");
+      }}><Image source={{
+          uri: 'https://tinyurl.com/42evm3m3'
+        }} style={_styles.pZwwVMrh} /></Pressable>
       <Pressable onPress={() => {
         navigation.navigate("ScreenAI23");
       }}><Text style={_styles.OwnBINPB}>{"Book a ride"}</Text></Pressable></View>

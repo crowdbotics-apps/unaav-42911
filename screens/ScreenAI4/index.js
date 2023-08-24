@@ -35,7 +35,7 @@ const ScreenComponent = () => {
         <Text style={styles.buttonText}>Sign in via Facebook</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => {
-      navigation.navigate("ScreenAI5");
+      navigation.navigate("ScreenAI32");
     }}>
         <Text style={styles.linkText}>Don't have an account? Sign up</Text>
       </TouchableOpacity>
