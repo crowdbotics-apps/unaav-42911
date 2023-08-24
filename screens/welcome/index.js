@@ -1,64 +1,46 @@
-import React from "react"
-import {
-  View,
-  Image,
-  Text,
-  ScrollView,
-  SafeAreaView,
-  StyleSheet
-} from "react-native"
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet, Animated } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const WelcomeScreen = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollView}>
-        <View style={styles.group} />
-        <View style={styles.group}>
-          <Image style={styles.logo} source={require("./logo.png")} />
-          <Text style={styles.text}>
-            Let's build something amazing together!
-          </Text>
-        </View>
-        <Text style={styles.footer}>Made with ❤️ by Crowdbotics</Text>
-      </ScrollView>
-    </SafeAreaView>
-  )
-}
+  const fadeAnim = React.useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 2000,
+      useNativeDriver: true
+    }).start();
+  }, [fadeAnim]);
+  return <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+        <Animated.Image style={{ ...styles.logo,
+        opacity: fadeAnim
+      }} source={{
+        uri: 'https://tinyurl.com/42evm3m3'
+      }} />
+        <Text style={styles.text}>UNave</Text>
+      </View>
+    </SafeAreaView>;
+};
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#F8F8FC",
-    height: "100%"
-  },
-  scrollView: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: 20
+    backgroundColor: '#FDB813',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  group: {
-    alignItems: "center"
+  content: {
+    alignItems: 'center'
   },
   logo: {
-    height: 180,
-    width: 180,
-    padding: 40,
-    borderRadius: 30,
-    margin: 40
+    width: 150,
+    height: 150
   },
   text: {
-    textAlign: "center",
+    marginTop: 20,
     fontSize: 28,
-    color: "#828AB0",
-    fontWeight: 700
-  },
-  footer: {
-    textAlign: "center",
-    fontSize: 18,
-    color: "#828AB0",
-    fontWeight: 700,
-    marginBottom: 20
+    color: '#FFFFFF'
   }
-})
-
-export default WelcomeScreen
+});
+export default WelcomeScreen;
