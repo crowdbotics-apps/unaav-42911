@@ -16,7 +16,9 @@ const App = () => {
     }}>
         <Text style={_styles.buttonText}>Driver</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={_styles.button}>
+      <TouchableOpacity style={_styles.button} onPress={() => {
+      navigation.navigate("ScreenAI14");
+    }}>
         <Text style={_styles.buttonText}>Consumer/Rider</Text>
       </TouchableOpacity>
       <TextInput placeholder="Name" style={_styles.VAiLxPpq} />
