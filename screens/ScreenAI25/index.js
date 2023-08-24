@@ -1,8 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import { StyleSheet } from "react-native";
 import React from 'react';
 import { SafeAreaView, View, Text, Image, Button, TextInput, TouchableOpacity } from 'react-native';
 
 const ScreenComponent = () => {
+  const navigation = useNavigation();
   return <SafeAreaView style={_styles.FiySokcV}>
       <View style={_styles.NuGwEIob}>
         <Text style={_styles.cPVKlMlY}>Map View</Text>
@@ -22,7 +25,7 @@ const ScreenComponent = () => {
             <Text>Average Rating: 4.5</Text>
           </View>
         </View>
-        <Button title="View Reviews" onPress={() => {}} />
+        <Button title="View Reviews" onPress={() => {}} style={_styles.TZHXEVsz} />
         <Button title="Give Review" onPress={() => {}} />
         <View style={_styles.xzervyXw}>
           <TextInput style={_styles.tobgWJDc} placeholder="Message" />
@@ -31,7 +34,9 @@ const ScreenComponent = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>;
+    <Pressable onPress={() => {
+      navigation.navigate("ScreenAI30");
+    }}><Text style={_styles.hYkVfygH}></Text></Pressable></SafeAreaView>;
 };
 
 export default ScreenComponent;
@@ -75,5 +80,18 @@ const _styles = StyleSheet.create({
   },
   iNLJOBQA: {
     marginLeft: 10
+  },
+  TZHXEVsz: {
+    position: "relative"
+  },
+  hYkVfygH: {
+    width: 350,
+    height: 36,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0,
+    position: "absolute",
+    left: 4,
+    top: -149
   }
 });

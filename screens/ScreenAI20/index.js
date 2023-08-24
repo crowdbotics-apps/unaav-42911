@@ -60,14 +60,18 @@ const Screen = () => {
         <TouchableOpacity onPress={() => {}}>
           <Text>Ride history</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => {
+        navigation.navigate("ScreenAI26");
+      }}>
           <Text>Chat</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => {}}>
           <Text>Profile</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>;
+    <Pressable onPress={() => {
+      navigation.navigate("ScreenAI29");
+    }}><Text style={_styles.gBkYCPsM}></Text></Pressable></SafeAreaView>;
 };
 
 export default Screen;
@@ -140,5 +144,15 @@ const _styles = StyleSheet.create({
     position: "absolute",
     left: -121,
     top: -2
+  },
+  gBkYCPsM: {
+    width: 370,
+    height: 31,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0,
+    position: "absolute",
+    left: 7,
+    top: -198
   }
 });
