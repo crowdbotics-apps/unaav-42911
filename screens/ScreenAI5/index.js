@@ -1,16 +1,24 @@
+import { useNavigation } from "@react-navigation/native";
 import { StyleSheet } from "react-native";
-import React, { useState } from 'react';
-import { SafeAreaView, View, Text, TextInput, Button, TouchableOpacity, Image, CheckBox } from 'react-native';
+import React, { useState } from "react";
+import { SafeAreaView, View, Text, TextInput, TouchableOpacity, Image, CheckBox } from "react-native";
 
 const App = () => {
+  const navigation = useNavigation();
   const [isSelected, setSelection] = useState(false);
   return <SafeAreaView style={_styles.doZUEnAH}>
       <Image style={_styles.QygOjUcq} source={{
-      uri: 'https://tinyurl.com/42evm3m3'
+      uri: "https://tinyurl.com/42evm3m3"
     }} />
       <Text style={_styles.DKlbywOX}>I'm a</Text>
-      <Button title="Driver" onPress={() => {}} />
-      <Button title="Consumer/Rider" onPress={() => {}} />
+      <TouchableOpacity style={_styles.button} onPress={() => {
+      navigation.navigate("ScreenAI61");
+    }}>
+        <Text style={_styles.buttonText}>Driver</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={_styles.button}>
+        <Text style={_styles.buttonText}>Consumer/Rider</Text>
+      </TouchableOpacity>
       <TextInput placeholder="Name" style={_styles.VAiLxPpq} />
       <TextInput placeholder="Email" style={_styles.wFQOWOtJ} />
       <TextInput placeholder="Phone number" style={_styles.YNvwIeza} />
@@ -18,14 +26,26 @@ const App = () => {
       <TextInput placeholder="Confirm password" secureTextEntry={true} style={_styles.osIqkdaM} />
       <View style={_styles.LaQOkHaL}>
         <CheckBox value={isSelected} onValueChange={setSelection} style={_styles.hVnOtvma} />
-        <Text style={_styles.DhTebkoZ}>I agree to the Terms and Conditions</Text>
+        <Text style={_styles.DhTebkoZ}>
+          I agree to the Terms and Conditions
+        </Text>
       </View>
-      <Button title="Sign Up" onPress={() => {}} />
+      <TouchableOpacity style={_styles.button} onPress={() => {
+      navigation.navigate("ScreenAI61");
+    }}>
+        <Text style={_styles.buttonText}>Sign Up</Text>
+      </TouchableOpacity>
       <Text style={_styles.AhJdfblp}>OR</Text>
       <Text style={_styles.zAflEAoj}>Sign Up via:</Text>
-      <Button title="Google" onPress={() => {}} />
-      <Button title="Apple" onPress={() => {}} />
-      <Button title="Facebook" onPress={() => {}} />
+      <TouchableOpacity style={_styles.button}>
+        <Text style={_styles.buttonText}>Google</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={_styles.button}>
+        <Text style={_styles.buttonText}>Apple</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={_styles.button}>
+        <Text style={_styles.buttonText}>Facebook</Text>
+      </TouchableOpacity>
       <TouchableOpacity onPress={() => {}}>
         <Text style={_styles.MYdebNWs}>Already have account? Sign in</Text>
       </TouchableOpacity>
@@ -98,5 +118,15 @@ const _styles = StyleSheet.create({
   },
   MYdebNWs: {
     color: "blue"
+  },
+  button: {
+    backgroundColor: "#DDDDDD",
+    padding: 10,
+    margin: 10,
+    borderRadius: 5
+  },
+  buttonText: {
+    color: "black",
+    textAlign: "center"
   }
 });
