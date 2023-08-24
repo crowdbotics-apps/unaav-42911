@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Image, Button } from 'react-native';
 
 const BackgroundCheckScreen = () => {
+  const navigation = useNavigation();
   const backgroundCheckStatus = 'Successful';
   const additionalInfo = 'Your background check was successful. You can now proceed to the next step.';
   return <SafeAreaView style={styles.container}>
@@ -13,7 +16,9 @@ const BackgroundCheckScreen = () => {
         <Text style={styles.info}>{additionalInfo}</Text>
         <Button title="Continue" onPress={() => {}} />
       </View>
-    </SafeAreaView>;
+    <Pressable onPress={() => {
+      navigation.navigate("ScreenAI10");
+    }}><Text style={styles.hnNIjpkk}></Text></Pressable></SafeAreaView>;
 };
 
 const styles = StyleSheet.create({
@@ -42,6 +47,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     marginBottom: 20
+  },
+  hnNIjpkk: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0,
+    position: "absolute",
+    left: -51,
+    top: -63
   }
 });
 export default BackgroundCheckScreen;
