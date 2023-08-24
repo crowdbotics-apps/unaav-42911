@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 
 const OnboardingScreen = () => {
+  const navigation = useNavigation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [{
     image: 'https://tinyurl.com/42evm3m3',
@@ -13,12 +15,6 @@ const OnboardingScreen = () => {
     image: 'https://tinyurl.com/42evm3m3',
     text: 'Get started now!'
   }];
-
-  const handleNext = () => {
-    if (currentSlide < slides.length - 1) {
-      setCurrentSlide(currentSlide + 1);
-    }
-  };
 
   const handlePrevious = () => {
     if (currentSlide > 0) {
@@ -41,7 +37,9 @@ const OnboardingScreen = () => {
         </TouchableOpacity>
         {currentSlide === slides.length - 1 ? <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Get Started</Text>
-          </TouchableOpacity> : <TouchableOpacity onPress={handleNext} style={styles.button}>
+          </TouchableOpacity> : <TouchableOpacity onPress={() => {
+        navigation.navigate("ScreenAI4");
+      }} style={styles.button}>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>}
       </View>

@@ -25,7 +25,9 @@ const SplashScreen = ({
       }}>
           Welcome to Our App
         </Animated.Text>
-      <Pressable><Text style={styles.GeGiLGLX}>{"UNav"}</Text></Pressable></View>
+      <Pressable onPress={() => {
+        navigation.navigate("ScreenAI3");
+      }}><Text style={styles.GeGiLGLX}>{"UNav"}</Text></Pressable></View>
     </SafeAreaView>;
 };
 
@@ -59,8 +61,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
     position: "absolute",
-    left: -42,
-    top: 13
+    left: -65,
+    top: 14,
+    textAlign: "center"
   }
 });
 export default SplashScreen;
