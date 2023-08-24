@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
+import React, { useEffect } from "react";
+import { View, Text, StyleSheet, Animated } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const WelcomeScreen = () => {
+  const navigation = useNavigation();
   const fadeAnim = React.useRef(new Animated.Value(0)).current;
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -16,9 +19,11 @@ const WelcomeScreen = () => {
         <Animated.Image style={{ ...styles.logo,
         opacity: fadeAnim
       }} source={{
-        uri: 'https://tinyurl.com/42evm3m3'
+        uri: "https://tinyurl.com/42evm3m3"
       }} />
-        <Text style={styles.text}>UNave</Text>
+        <Pressable onPress={() => {
+        navigation.navigate("ScreenAI2");
+      }}><Text style={styles.text}>UNave</Text></Pressable>
       </View>
     </SafeAreaView>;
 };
@@ -26,12 +31,12 @@ const WelcomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FDB813',
-    justifyContent: 'center',
-    alignItems: 'center'
+    backgroundColor: "#9b870c",
+    justifyContent: "center",
+    alignItems: "center"
   },
   content: {
-    alignItems: 'center'
+    alignItems: "center"
   },
   logo: {
     width: 150,
@@ -40,7 +45,7 @@ const styles = StyleSheet.create({
   text: {
     marginTop: 20,
     fontSize: 28,
-    color: '#FFFFFF'
+    color: "#FFFFFF"
   }
 });
 export default WelcomeScreen;
