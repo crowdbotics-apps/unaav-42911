@@ -1,8 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import { StyleSheet } from "react-native";
 import React from 'react';
 import { SafeAreaView, View, Text, TextInput, Button, Image, FlatList, TouchableOpacity } from 'react-native';
 
 const Screen = () => {
+  const navigation = useNavigation();
   const dummyData = [{
     id: '1',
     driver: 'John Doe',
@@ -27,7 +30,9 @@ const Screen = () => {
         <Image source={{
         uri: 'https://tinyurl.com/42evm3m3'
       }} style={_styles.pZwwVMrh} />
-      </View>
+      <Pressable onPress={() => {
+        navigation.navigate("ScreenAI23");
+      }}><Text style={_styles.OwnBINPB}>{"Book a ride"}</Text></Pressable></View>
       <View style={_styles.cgrIYTNx}>
         <TextInput placeholder="Search" style={_styles.BXIrheea} />
         <TextInput placeholder="Pickup address" style={_styles.uDpTvNVs} />
@@ -42,7 +47,7 @@ const Screen = () => {
       <FlatList data={dummyData} keyExtractor={item => item.id} renderItem={({
       item
     }) => <View style={_styles.jMhLcHWS}>
-            <Text>Driver: {item.driver}</Text>
+            <Pressable><Text>Driver: {item.driver}</Text></Pressable>
             <Text>Amount paid: {item.amount}</Text>
             <Text>Rating: {item.rating}</Text>
             <Button title="Review driver" onPress={() => {}} />
@@ -125,5 +130,15 @@ const _styles = StyleSheet.create({
     justifyContent: "space-around",
     padding: 10,
     backgroundColor: "#fff"
+  },
+  OwnBINPB: {
+    width: 206,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0,
+    position: "absolute",
+    left: -121,
+    top: -2
   }
 });
