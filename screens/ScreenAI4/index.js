@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { SafeAreaView, StyleSheet, View, Image, TextInput, Button, TouchableOpacity, Text } from 'react-native';
 
 const ScreenComponent = () => {
+  const navigation = useNavigation();
   return <SafeAreaView style={styles.container}>
       <Image style={styles.logo} source={{
       uri: 'https://tinyurl.com/42evm3m3'
@@ -17,7 +19,9 @@ const ScreenComponent = () => {
       <Button title="Sign in via Google" onPress={() => {}} />
       <Button title="Sign in via Apple" onPress={() => {}} />
       <Button title="Sign in via Facebook" onPress={() => {}} />
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity onPress={() => {
+      navigation.navigate("ScreenAI5");
+    }}>
         <Text style={styles.linkText}>Don't have an account? Sign up</Text>
       </TouchableOpacity>
     </SafeAreaView>;
