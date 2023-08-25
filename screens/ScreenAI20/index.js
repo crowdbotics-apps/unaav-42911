@@ -23,7 +23,9 @@ const Screen = () => {
     rating: 4.7
   }];
   return <SafeAreaView style={_styles.bdcsirKZ}>
-      <View style={_styles.yoeKoEmO}>
+      <View style={_styles.yoeKoEmO} onPress={() => {
+      navigation.navigate("ScreenAI26");
+    }}>
         <Image source={{
         uri: 'https://tinyurl.com/42evm3m3'
       }} style={_styles.MIeSLjDh} />
@@ -49,7 +51,9 @@ const Screen = () => {
       <FlatList data={dummyData} keyExtractor={item => item.id} renderItem={({
       item
     }) => <View style={_styles.jMhLcHWS}>
-            <Pressable><Text>Driver: {item.driver}</Text></Pressable>
+            <Pressable onPress={() => {
+        navigation.navigate("ScreenAI22");
+      }}><Text>Driver: {item.driver}</Text></Pressable>
             <Text>Amount paid: {item.amount}</Text>
             <Text>Rating: {item.rating}</Text>
             <Button title="Review driver" onPress={() => {}} />
